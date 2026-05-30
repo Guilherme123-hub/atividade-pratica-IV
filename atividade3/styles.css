@@ -1,0 +1,87 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+        "topbar topbar"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+.topbar {
+    grid-area: topbar;
+    background-color: #6a1b9a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.menu-flex { display: flex; list-style: none; gap: 20px; font-size: 14px;}
+.menu-flex a { color: white; text-decoration: none; }
+.btn-menu { background-color: #8e24aa; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; }
+
+.sidebar-menu {
+    grid-area: sidebar;
+    background-color: #5e138a;
+    color: white;
+    padding: 20px;
+}
+.sidebar-menu ul { list-style: none; line-height: 2.5; font-size: 14px;}
+
+.cursos-grid {
+    grid-area: main;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    background-color: #f8f9fa;
+}
+
+.curso-card {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.curso-img { height: 120px; background-color: #b388ff; margin: 10px; border-radius: 8px;}
+.curso-card h3, .curso-card p { padding: 0 15px; }
+.curso-card h3 { font-size: 18px; margin-top: 10px; color: #333;}
+.curso-card p { flex-grow: 1; color: #777; font-size: 14px; margin-top: 5px;}
+
+.curso-card button {
+    background-color: #7c4dff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 4px;
+}
+
+/* Responsividade Obrigatória */
+@media (min-width: 1025px) {
+    .cursos-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 1024px) {
+    .cursos-grid { grid-template-columns: repeat(2, 1fr); }
+    .layout-grid { grid-template-columns: 150px 1fr; }
+    .menu-flex { display: none; } /* Esconde menu no tablet como na imagem */
+}
+
+@media (max-width: 480px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "topbar" "sidebar" "main";
+    }
+    .topbar { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+    .menu-flex { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .cursos-grid { grid-template-columns: 1fr; }
+    .sidebar-menu { display: none; } /* Ajuste mobile */
+}
