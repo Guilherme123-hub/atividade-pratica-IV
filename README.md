@@ -1,7 +1,9 @@
 # Atividade Prática IV - Desenvolvimento Web I
 
-**Nome do Aluno:** [Seu Nome Completo Aqui]
+
+**Nome do Aluno:** Guilherme Martins Marques
 **Disciplina:** Desenvolvimento Web I
+
 
 Descrição da atividade:
 Este repositório contém 3 atividades práticas focadas na estruturação de layouts modernos utilizando HTML e CSS:
